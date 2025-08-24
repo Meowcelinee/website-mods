@@ -1,0 +1,311 @@
+/* ==UserStyle==
+@name           foxcrypt catppuccin
+@namespace      github.com/Meowcelinee
+@version        9.0.0
+@description    a catppuccin userstyle for foxcrypt
+@author         Marceline
+==/UserStyle== */
+
+/* 
+    this is really old btw 
+    literally had to update the author name
+*/
+
+@-moz-document url-prefix("https://foxcry.pt")
+{
+    /* ibm plex sans, jetbrains mono */
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+    * {
+        transition: all ease-in-out 0.2s !important;
+
+        &::selection {
+            color: var(--box-shadow);
+            background: var(--primary);
+        }
+    }
+
+    body {
+        --background: #24273a !important;
+        --primary: #f5bde6 !important;
+        --primary-hover: #c497b8;
+        --secondary: #494d64 !important;
+        --body: #1e2030 !important;
+        --input--bg: #1e2030 !important;
+        --input-bg: #1e2030 !important;
+        --border-color: #5b6078 !important;
+        --box-shadow: #181926 !important;
+        --error: #e78284 !important;
+        --text: #cad3f5;
+        --subtext: #a5adcb;
+        font-family: 'IBM Plex Sans', sans-serif !important;
+        background: var(--background);
+        color: var(--text);
+    }
+    a {
+        color: var(--primary) !important;
+
+        &:hover {
+            color: var(--primary-hover) !important;
+        }
+        transition: all 0.2s !important;
+    }
+    .dark--theme {
+        background: var(--background) !important;
+    }
+    .navbar {
+        background: var(--body) !important;
+    }
+    .navbar-nav .nav-link {
+        color: var(--subtext) !important;
+
+        &:hover {
+            color: var(--primary) !important;
+            transition: all 0.2s !important;
+        }
+    }
+    .form-control {
+        background: var(--input-bg) !important;
+        color: var(--text) !important;
+        font-family: 'JetBrains Mono', monospace !important;
+
+        &:focus {
+            box-shadow: 1px 1px 6px var(--secondary) !important;
+        }
+    }
+    .btn-primary {
+        background-color: var(--primary) !important;
+        border-color: var(--primary) !important;
+        color: var(--body) !important;
+        transition: all 0.2s !important;
+
+        &:hover {
+            background-color: var(--primary-hover) !important;
+            border-color: var(--primary-hover) !important;
+            color: var(--body) !important;
+        }
+
+        &:focus {
+            box-shadow: 1px 1px 6px var(--secondary) !important;
+        }
+    }
+    /*     change color & opacity of copy button */
+    .btn-outline-secondary {
+        border-color: var(--secondary) !important;
+        color: var(--secondary) !important;
+
+        &:hover {
+            background-color: transparent !important;
+            border-color: var(--subtext) !important;
+            color: var(--subtext) !important;
+        }
+    }
+    .modal-backdrop {
+        background-color: #181926 !important;
+    }
+    /*     necessary to center the "close" button */
+    .modal-footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn-secondary {
+        background-color: var(--secondary) !important;
+        border-color: var(--secondary) !important;
+        color: var(--subtext) !important;
+        width: 90%;
+        transition: all 0.2s !important;
+
+        &:hover {
+            background-color: var(--border-color) !important;
+            color: var(--text) !important;
+            width: 92%;
+        }
+    }
+    .btn {
+        transition: all 0.2s !important;
+    }
+    .fa-copy::before {
+        transition: all 0.2s !important;
+    }
+    .close {
+        color: var(--border-color) !important;
+
+        &:hover {
+            color: var(--subtext) !important;
+        }
+        transition: all 0.2s !important;
+    }
+    label {
+        color: var(--subtext) !important;
+    }
+    .alert-danger {
+        background: var(--body) !important;
+        color: var(--error) !important;
+    }
+    .text-muted {
+        color: var(--subtext) !important;
+    }
+
+    /* centers "save it" button */
+    .form-horizontal {
+        div.w-100 {
+            display: flex !important;
+
+            div.control-group.mt-4.flex-grow-1 {
+                display: none !important;
+            }
+            div.control-group.mt-4 {
+                display: flex !important;
+                justify-content: center;
+                align-items: center;
+                margin: 15px auto;
+                width: 100%;
+
+                .btn {
+                    font-size: 105%;
+                    width: 35% !important;
+                }
+            }
+        }
+    }
+
+    /* hides "Please, notify me when my message is read." */
+    .form-check {
+        display: none !important;
+    }
+
+    /* attempting to theme the logo & mobile menu icon */
+    .dark--theme .navbar-toggler-icon,
+    .dark--theme .brand-logo {
+        filter: invert(18%) sepia(23%) saturate(283%) hue-rotate(191deg)
+            brightness(102%) contrast(92%) !important;
+
+        &:hover {
+            filter: invert(15%) sepia(17%) saturate(1166%) hue-rotate(285deg)
+                brightness(106%) contrast(92%) !important;
+        }
+        transition: all 0.2s !important;
+    }
+
+    /* changes modal *only* when message doesnt exist */
+    #messageNotFound {
+        .modal-dialog {
+            max-width: 450px !important;
+            margin-top: 15% !important;
+        }
+        .modal-content {
+            .modal-header {
+                padding: 0.5rem;
+                padding-left: 1rem !important;
+                padding-top: 0.15rem !important;
+
+                > h5 {
+                    visibility: hidden !important;
+                    margin: 0;
+
+                    &::after {
+                        content: 'Message borked';
+                        display: block !important;
+                        font-size: 110% !important;
+                        margin-top: 0;
+                        margin-bottom: 5px;
+                        visibility: visible;
+                    }
+                }
+                .close {
+                    display: none !important;
+                }
+            }
+
+            #messageNotFoundText {
+                > p:first-child {
+                    visibility: hidden !important;
+
+                    &::after {
+                        content: "If you're seeing this, she probably sent you a bad link.";
+                        display: block !important;
+                        visibility: visible;
+                    }
+                }
+                > p:last-child {
+                    visibility: hidden !important;
+
+                    &::after {
+                        content: 'Click the "Close" button below and let her know.';
+                        display: block !important;
+                        visibility: visible;
+                    }
+                }
+            }
+            .modal-footer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .btn-secondary {
+                    background-color: var(--error) !important;
+                    border-color: var(--error) !important;
+                    color: var(--body) !important;
+                    transition: all 0.2s !important;
+                    width: 95%;
+
+                    &:hover {
+                        background-color: #a55e69 !important;
+                        border-color: #a55e69 !important;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        /* centers "save it" button */
+        .form-horizontal {
+            div.w-100 {
+                display: flex !important;
+
+                div.control-group.mt-4.flex-grow-1 {
+                    display: none !important;
+                }
+                div.control-group.mt-4 {
+                    width: 100%;
+                    display: flex !important;
+                    justify-content: center;
+                    align-items: center;
+
+                    .btn {
+                        font-size: 105%;
+                        width: 94% !important;
+                    }
+                }
+            }
+        }
+        /* i attempted to make the message modal easier to read */
+        #messageModal {
+            height: 100% !important;
+
+            .modal-dialog {
+                height: 90% !important;
+
+                .modal-content {
+                    .modal-header {
+                        padding: 0 !important;
+
+                        h5,
+                        button.close {
+                            display: none !important;
+                        }
+                    }
+                    #messageText {
+                        height: 100% !important;
+                    }
+                }
+                /* hides warning about only being able to see the message once */
+                div.alert {
+                    display: none !important;
+                }
+            }
+        }
+    }
+}

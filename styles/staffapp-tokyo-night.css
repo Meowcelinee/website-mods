@@ -1,0 +1,754 @@
+/* ==UserStyle==
+@name           Tokyo Night (staffapp)
+@namespace      https://github.com/Meowcelinee
+@version        1.0.0
+@description    Tokyo Night theme for Staffapp
+@author         Marceline
+==/UserStyle== */
+
+/*
+    proud of this one tbh
+*/
+
+@-moz-document domain("staff.queercraft.net") {
+    /* JetBrains Mono, Poppins */
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    /* 
+    tokyo night color palette (variables) 
+    taken from: https://github.com/tokyo-night/tokyo-night-vscode-theme?tab=readme-ov-file#color-palette
+    */
+    :root {
+        --red: #f7768e;
+        --orange: #ff9e64;
+        --yellow: #e0af68;
+        --tan: #cfc9c2;
+        --green: #9ece6a;
+        --cyan: #73daca;
+        --baby-blue: #b4f9f8;
+        --bright-blue: #2ac3de;
+        --light-blue: #7dcfff;
+        --blue: #7aa2f7;
+        --purple: #bb9af7;
+
+        --white: #c0caf5;
+        --subtext1: #a9b1d6;
+        --subtext2: #9aa5ce;
+        --extra-subtext: #565f89;
+        --black: #414868;
+        --darker: #313750;
+
+        --fg-night: #1a1b26;
+        --bg-night: #16161f;
+    }
+
+    /* text hightlighting */
+    ::selection {
+        background: var(--white) !important;
+        color: var(--fg-night) !important;
+    }
+
+    /* remove ugly default outline on inputs when selected */
+    *:focus-visible {
+        outline: none !important;
+    }
+
+    #main {
+        background: var(--fg-night);
+        font-family: 'Poppins';
+
+        #titlebar {
+            color: var(--white);
+            background: var(--bg-night);
+            box-shadow: 0px 1px 4px var(--bg-night) !important;
+
+            > a {
+                color: var(--light-blue) !important;
+                font-family: 'Poppins';
+                font-weight: 600 !important;
+
+                transition: all 200ms;
+
+                &:hover {
+                    color: var(--white) !important;
+                }
+            }
+
+            nav {
+                display: flex !important;
+
+                a {
+                    transition: all 200ms;
+
+                    &:hover {
+                        color: #8f96ba;
+                    }
+                }
+            }
+        }
+
+        #content {
+            background: inherit;
+            color: var(--subtext1);
+            width: 80%;
+
+            blockquote p,
+            strong {
+                color: var(--white) !important;
+                font-weight: 600 !important;
+            }
+
+            ul li::marker {
+                color: var(--tan) !important;
+            }
+
+            /* info page navbar -- selected */
+            .currentType {
+                background-color: var(--blue);
+                border-radius: 36px;
+                color: var(--bg-night);
+                filter: drop-shadow(1px 4px 2px #112);
+                font-weight: 600;
+                padding: 6px 10px;
+            }
+
+            /* info page navbar -- not selected */
+            .infoType {
+                background: var(--light-blue);
+                border-radius: 16px;
+                color: var(--fg-night);
+                filter: drop-shadow(1px 4px 2px #112);
+                font-weight: 500;
+                padding: 6px 10px;
+
+                transition: all 200ms;
+
+                &:hover {
+                    background-color: #5596bc !important;
+                    color: var(--bg-night) !important;
+                    transform: translateY(2px);
+                }
+            }
+
+            hr {
+                border-color: var(--extra-subtext) !important;
+                margin: 20px auto;
+            }
+
+            center,
+            h1,
+            h2,
+            h3 {
+                color: var(--white);
+            }
+
+            /* info page -- commands, etc */
+            code {
+                color: var(--light-blue);
+                font-family: 'JetBrains Mono';
+                font-weight: 600;
+                font-size: 90%;
+            }
+
+            a {
+                color: var(--light-blue);
+
+                transition: all 150ms;
+
+                &:hover {
+                    color: var(--baby-blue);
+                }
+            }
+
+            /* player list table */
+            table#DataTables_Table_0 {
+                border-collapse: collapse !important;
+
+                tbody {
+                    color: var(--subtext1) !important;
+                    font-size: 15px !important;
+
+                    .odd > td {
+                        background-color: var(--darker) !important;
+                        padding: 6px 12px !important;
+
+                        a {
+                            color: var(--light-blue) !important;
+                            font-weight: 300;
+                            text-decoration: none;
+
+                            transition: all 200ms;
+
+                            &:hover {
+                                color: var(--baby-blue) !important;
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+
+                    .even > td {
+                        background-color: var(--black) !important;
+                        padding: 6px 12px !important;
+
+                        a {
+                            color: var(--light-blue) !important;
+                            font-weight: 300;
+                            text-decoration: none;
+
+                            transition: all 200ms;
+
+                            &:hover {
+                                color: var(--baby-blue) !important;
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+
+            /* "Show <num> entries" */
+            select {
+                background-color: var(--darker) !important;
+                border: 2px solid #00000000 !important;
+                color: var(--subtext1) !important;
+                font-family: 'Poppins' !important;
+                font-weight: 500 !important;
+
+                transition: all 100ms;
+
+                &:focus {
+                    border-color: var(--extra-subtext) !important;
+                }
+            }
+
+            /* player search input */
+            .dataTables_filter label input[type='text'] {
+                background-color: var(--darker) !important;
+                border: 2px solid #00000000 !important;
+                border-radius: 8px !important;
+                color: var(--subtext1) !important;
+                padding: 4px 5px;
+
+                font-family: 'Poppins' !important;
+                font-weight: 500 !important;
+
+                transition: all 200ms;
+
+                &:focus {
+                    background: var(--black) !important;
+                    border-color: var(--light-blue) !important;
+                }
+            }
+
+            /* player & ban/warn info */
+            fieldset.column {
+                background-color: var(--darker) !important;
+                border: none !important;
+                border-radius: 16px !important;
+
+                input#id_player,
+                input#id_reason,
+                input#id_timestamp {
+                    background-color: var(--black) !important;
+                    border: 2px solid #00000000 !important;
+                    border-radius: 8px !important;
+                    color: var(--white) !important;
+                    font-family: 'Poppins' !important;
+                    font-size: 14px !important;
+                    padding: 4px 6px !important;
+
+                    transition: all 200ms;
+
+                    &:focus {
+                        border-color: var(--light-blue) !important;
+                    }
+                }
+
+                input#id_bannedGriefing,
+                input#id_bannedHacking,
+                input#id_bannedDiscrim,
+                input#id_bannedSpam,
+                input#id_bannedOther {
+                    background: var(--purple) !important;
+                }
+            }
+
+            /* warn/ban description input
+         AND warn/ban note input */
+            textarea#note_text,
+            textarea#id_description {
+                background: var(--darker) !important;
+                border: 2px solid #00000000 !important;
+                color: var(--white) !important;
+                font-family: 'Poppins' !important;
+                padding: 4px 6px !important;
+
+                transition: all 200ms;
+
+                &:focus {
+                    background: var(--black) !important;
+                    border-color: var(--light-blue) !important;
+                }
+
+                &:focus-visible {
+                    outline: none !important;
+                }
+
+                &::selection {
+                    background-color: var(--bright-blue) !important;
+                }
+            }
+
+            /* save log button AND save new note button */
+            button#note_create,
+            input.create {
+                background: var(--black) !important;
+                border: 2px solid #00000000 !important;
+                border-radius: 8px;
+                color: var(--white) !important;
+                font-family: 'Poppins';
+                font-size: 15px;
+                font-weight: 500;
+                padding: 8px 10px !important;
+
+                transition: all 200ms;
+
+                &:hover {
+                    background: var(--bright-blue) !important;
+                    color: var(--darker) !important;
+                    cursor: pointer;
+                }
+            }
+
+            /* "Processing..." popup */
+            .dataTables_processing {
+                background-color: var(--subtext1) !important;
+                border-color: var(--subtext2) !important;
+                border-radius: 6px !important;
+                color: var(--extra-subtext) !important;
+                font-family: 'JetBrains Mono' !important;
+                font-style: italic !important;
+                font-weight: 600 !important;
+                font-size: 16px !important;
+            }
+
+            /* staff list page */
+            table.styled {
+                a {
+                    font-weight: 300;
+                    text-decoration: none;
+
+                    transition: all 150ms;
+                }
+
+                tr:nth-child(2n + 1) {
+                    background-color: var(--black);
+                    border-radius: 0 !important;
+                }
+
+                thead th,
+                tr:nth-child(2n) {
+                    background-color: var(--darker);
+                    border-radius: 0 !important;
+                }
+
+                span.inplaceedit {
+                    padding: 1px;
+                    transition: all 100ms;
+
+                    img {
+                        outline: none !important;
+                    }
+
+                    /*
+            i haven't been able to find a way to replace the icons using regular CSS, so
+            fully replacing the icons requires installing the extension Tampermonkey.
+            ask marceline for the script to replace the icons, if you wish
+          */
+
+                    &:hover {
+                        background: var(--subtext2) !important;
+                        color: var(--black) !important;
+                    }
+                }
+            }
+
+            /* Previous / Next buttons */
+            div#DataTables_Table_0_paginate {
+                display: flex;
+                gap: 8px;
+                margin-top: 4px;
+
+                transition: all 200ms;
+
+                a#DataTables_Table_0_previous {
+                    background: none !important;
+                    color: var(--subtext1) !important;
+
+                    transition: all 200ms;
+
+                    &:hover {
+                        color: var(--light-blue) !important;
+                    }
+
+                    &::before {
+                        font-family: 'JetBrains Mono';
+                        content: '<- ';
+                    }
+                }
+
+                a#DataTables_Table_0_next {
+                    background: none !important;
+                    color: var(--subtext1) !important;
+
+                    transition: all 200ms;
+
+                    &:hover {
+                        color: var(--light-blue) !important;
+                    }
+
+                    &::after {
+                        font-family: 'JetBrains Mono';
+                        content: ' ->';
+                    }
+                }
+
+                /* hide buttons when there's no previous/next page
+           without causing them to change positions */
+                .paginate_disabled_previous,
+                .paginate_disabled_next {
+                    visibility: hidden !important;
+                }
+            }
+
+            /* unban while viewing a ban/warn */
+            button#unban {
+                background-color: var(--yellow) !important;
+                border: 1px solid #00000000 !important;
+                color: var(--fg-night) !important;
+                cursor: pointer;
+                font-family: 'Poppins';
+                font-size: 12px;
+                font-weight: 500;
+                margin-top: 8px;
+
+                transition: all 200ms;
+
+                &:hover {
+                    filter: brightness(80%);
+                }
+            }
+
+            /* delete log */
+            form.confirmDelete input[type='submit'] {
+                background: var(--red) !important;
+                border: 1px solid #00000000 !important;
+                color: var(--bg-night) !important;
+                cursor: pointer;
+                font-family: 'Poppins';
+                font-size: 12px;
+                font-weight: 500;
+                margin-top: 10px;
+
+                transition: all 200ms;
+
+                &:hover {
+                    filter: brightness(80%);
+                }
+            }
+
+            /* log note */
+            div.note {
+                background: var(--darker) !important;
+                border: 2px solid #00000000;
+                border-radius: 1px;
+                padding: 8px 6px;
+                margin: 2px 0 !important;
+
+                /* name & date header */
+                div {
+                    color: var(--white);
+                    font-weight: 500 !important;
+                    font-size: 16px;
+                    padding: 1px;
+                }
+
+                /* note content */
+                p.inplaceedit {
+                    font-size: 15px;
+                    margin: 2px auto;
+                    padding: 1px;
+
+                    transition: all 100ms;
+
+                    &:hover {
+                        background: var(--light-blue) !important;
+                        color: var(--darker) !important;
+                    }
+                }
+
+                /* delete note */
+                button.note_delete {
+                    background: var(--black) !important;
+                    border: 2px solid #00000000;
+                    color: var(--subtext1);
+                    cursor: pointer;
+                    font-family: 'Poppins';
+                    margin: 0 !important;
+                    padding: 0 2px;
+
+                    transition: all 150ms;
+
+                    &:hover {
+                        filter: brightness(125%) !important;
+                    }
+                }
+
+                /* remove unnecessary space at top of note */
+                br {
+                    display: none !important;
+                }
+
+                /* end log note section */
+            }
+
+            /* hide space above log screenshots (i hate css) */
+            br:has(~ div#screenshots) {
+                display: none !important;
+            }
+
+            /* log screenshots */
+            div#screenshots {
+                div.screenshot {
+                    margin: 2px !important;
+                    margin-left: 0 !important;
+
+                    a > img {
+                        border: 2px solid #00000000 !important;
+                        border-radius: 2px;
+                        position: static;
+
+                        transition: all 150ms;
+
+                        &:hover {
+                            transform: scale(105%);
+                        }
+                    }
+
+                    span {
+                        color: var(--white) !important;
+                        font-size: 115%;
+                        font-weight: 600;
+                        text-shadow: none !important;
+
+                        transition: all 200ms;
+
+                        &:hover {
+                            color: var(--red) !important;
+                        }
+                    }
+                }
+            }
+
+            /* screenshot upload */
+            input[type='file'] {
+                color: var(--subtext2) !important;
+
+                &::file-selector-button {
+                    background: var(--black) !important;
+                    border: none !important;
+                    border-radius: 6px !important;
+                    color: var(--subtext1);
+                    cursor: pointer;
+                    font-family: 'Poppins';
+                    padding: 4px 6px;
+                }
+            }
+
+            /* uuid in player view */
+            h4 > a {
+                color: var(--subtext2) !important;
+
+                transition: all 150ms;
+
+                &:hover {
+                    color: var(--tan) !important;
+                }
+            }
+
+            div.column {
+                ul a {
+                    text-decoration: none !important;
+
+                    transition: all 200ms;
+
+                    &:hover {
+                        color: var(--baby-blue) !important;
+                        text-decoration: underline !important;
+                    }
+                }
+            }
+        } /* end #content */
+    }
+
+    /* date picker for warns/bans */
+    .ui-widget-content {
+        background: var(--black) !important;
+        border: 2px solid #00000000;
+        border-radius: 8px !important;
+
+        th {
+            color: var(--subtext1);
+        }
+
+        .ui-widget-header {
+            background: var(--black) !important;
+            border: none !important;
+            color: var(--white) !important;
+        }
+
+        .ui-state-hover {
+            background: var(--subtext2) !important;
+            border: 1px solid var(--bright-blue) !important;
+            color: var(--darker) !important;
+        }
+
+        .ui-state-highlight {
+            background: var(--light-blue) !important;
+            border-color: var(--light-blue) !important;
+            color: var(--darker) !important;
+        }
+    }
+}
+
+@-moz-document url-prefix("https://staff.queercraft.net/login")
+{
+    #content {
+        form {
+            margin: 0 auto !important;
+            width: 35% !important;
+
+            label[for='id_username'],
+            label[for='id_password'] {
+                color: var(--subtext1);
+                font-weight: 500;
+                font-size: 18px;
+                display: block;
+            }
+
+            /* additional text above password input */
+            label[for='id_password']::after {
+                color: var(--subtext1);
+                content: 'Forgot your password? Log into the server and run /qcp setpassword (password).';
+                display: block;
+                font-size: 12px;
+                font-weight: 300;
+            }
+
+            /* username/password input */
+            input#id_username,
+            input#id_password {
+                background-color: var(--darker) !important;
+                border: 2px solid #00000000 !important;
+                border-radius: 8px !important;
+                color: var(--subtext1) !important;
+                margin-bottom: 5px;
+                padding: 4px 5px;
+                width: 100%;
+
+                font-family: 'Poppins' !important;
+                font-size: 13px;
+                font-weight: 500 !important;
+
+                transition: all 200ms;
+
+                &:focus {
+                    background: var(--black) !important;
+                    border-color: var(--light-blue) !important;
+                }
+            }
+
+            /*
+                the default login page does not say that it's a login page
+                despite there being a COMPLETELY EMPTY element which would be
+                perfect for saying this, so i have to use a pseudoelement
+                to tell the user that this is, in fact, a login page.
+                fuck staffapp
+            */
+            &::before {
+                color: var(--light-blue);
+                content: 'Login';
+                font-weight: 600;
+                font-size: 32px;
+            }
+
+            /* login button */
+            input[type='submit'] {
+                background: var(--black) !important;
+                border: 2px solid #00000000 !important;
+                border-radius: 8px;
+                color: var(--white) !important;
+                font-family: 'Poppins';
+                font-size: 15px;
+                font-weight: 500;
+                padding: 6px 10px !important;
+
+                transition: all 200ms;
+
+                &:hover {
+                    background: var(--bright-blue) !important;
+                    color: var(--darker) !important;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+@-moz-document url-prefix("https://staff.queercraft.net/warnings"), url-prefix("https://staff.queercraft.net/bans")
+{
+    /*  DO NOT UNCOMMENT - NOT FUNCTIONAL
+
+   #content {
+    display: flex !important;
+    
+    form {
+      width: 25vw !important;
+      fieldset.column {
+        font-size: 14px;
+        width: fit-content;
+      }
+    }
+    
+    #DataTables_Table_0_wrapper {
+      width: 75vw !important;
+    }
+  } */
+}
+
+@-moz-document url-prefix("https://staff.queercraft.net/staff")
+{
+    /* classes for staff color script */
+    .admin-class {
+        color: var(--bright-blue) !important;
+    }
+
+    .srop-class {
+        color: var(--purple) !important;
+    }
+
+    .op-class {
+        color: var(--red) !important;
+    }
+
+    .mod-class {
+        color: var(--orange) !important;
+    }
+
+    a.admin-class:hover,
+    a.srop-class:hover,
+    a.op-class:hover,
+    a.mod-class:hover {
+        filter: brightness(135%);
+    }
+}
